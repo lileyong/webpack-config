@@ -1,4 +1,6 @@
 {
+  "name": "webpack-config",
+  "version": "1.0.0",
   "scripts": {
     "dev": "webpack-dev-server --env.development",
     "build": "webpack --env.production",

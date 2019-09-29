@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "webpack-dev-server --env.development",
     "build": "webpack --env.production",
-    "eslint": "eslint --fix --ext .js --ext .vue ."
+    "eslint": "eslint --ext .js --ext .vue .",
+    "eslint:fix": "eslint --fix --ext .js --ext .vue ."
   },
   "pre-commit": "eslint",
   "dependencies": {

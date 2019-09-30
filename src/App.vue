@@ -27,4 +27,10 @@ body {
 #app {
     height: 100%;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>

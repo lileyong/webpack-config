@@ -6,7 +6,8 @@
 #app-sidebar {
     width: 180px;
     height: 100%;
-    background: #74ebd5;
-    background: linear-gradient(to bottom, #74ebd5, #acb6e5);
+    box-sizing: border-box;
+    border-right: 1px solid #e3e8f4;
+    background-color: #f7fbff;
 }
 </style>

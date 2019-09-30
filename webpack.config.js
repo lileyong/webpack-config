@@ -42,6 +42,24 @@ module.exports = function (env, argv) {
             }, {
                 test: /\.(scss|sass)$/,
                 use: cssLoader.concat('sass-loader')
+            }, {
+                test: /\.styl$/,
+                use: cssLoader.concat('stylus-loader')
+            }, {
+                test: /\.jsx$/,
+                loader: 'babel-loader'
+            }, {
+                test: /\.(jpg|jpeg|png|svg|gif)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 1024,
+                        name: '[name].[ext]'
+                    }
+                }]
+            }, {
+                test: /\.(ttf|eot|woff)$/,
+                loader: 'file-loader'
             }]
         },
         plugins: [

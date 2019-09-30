@@ -17,6 +17,5 @@
             "trailingComma": "es5"
         }
     },
-    "vetur.format.defaultFormatter.js": "prettier-eslint",
-    "prettier.eslintIntegration": true
+    "vetur.format.defaultFormatter.js": "prettier-eslint"
 }

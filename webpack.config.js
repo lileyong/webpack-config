@@ -1,8 +1,12 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
+const {
+    VueLoaderPlugin
+} = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin')
 
 module.exports = function (env, argv) {
     const obj = {
@@ -12,35 +16,34 @@ module.exports = function (env, argv) {
             vendor: ['vue']
         },
         devServer: {
-            open: true
+            open: true,
+            historyApiFallback: true
         },
         module: {
-            rules: [
-                {
-                    enforce: 'pre',
-                    test: /\.(js|vue)$/,
-                    loader: 'eslint-loader',
-                    options: {
-                        fix: true
-                    }
-                }, {
-                    test: /\.vue$/,
-                    use: 'vue-loader'
-                }, {
-                    test: /\.css$/,
-                    use: [
-                        env.production ? MiniCssExtractPlugin.loader : 'style-loader',
-                        'css-loader'
-                    ]
-                }, {
-                    test: /\.(scss|sass)$/,
-                    use: [
-                        env.production ? MiniCssExtractPlugin.loader : 'style-loader',
-                        'css-loader',
-                        'sass-loader'
-                    ]
+            rules: [{
+                enforce: 'pre',
+                test: /\.(js|vue)$/,
+                loader: 'eslint-loader',
+                options: {
+                    fix: true
                 }
-            ]
+            }, {
+                test: /\.vue$/,
+                use: 'vue-loader'
+            }, {
+                test: /\.css$/,
+                use: [
+                    env.production ? MiniCssExtractPlugin.loader : 'style-loader',
+                    'css-loader'
+                ]
+            }, {
+                test: /\.(scss|sass)$/,
+                use: [
+                    env.production ? MiniCssExtractPlugin.loader : 'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            }]
         },
         plugins: [
             new HtmlWebpackPlugin(),

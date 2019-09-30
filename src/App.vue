@@ -1,5 +1,7 @@
 <template>
-    <div id="app">My First Webpack App.</div>
+    <div id="app">
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
@@ -11,6 +13,10 @@ export default {
 </script>
 
 <style lang="scss">
+[v-cloak] {
+    display: none;
+}
+
 html,
 body {
     margin: 0;

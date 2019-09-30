@@ -7,7 +7,6 @@
     width: 180px;
     height: 100%;
     background: #74ebd5;
-    background: -webkit-linear-gradient(to right, #74ebd5, #acb6e5);
     background: linear-gradient(to bottom, #74ebd5, #acb6e5);
 }
 </style>

@@ -9,6 +9,12 @@ const {
 } = require('clean-webpack-plugin')
 
 module.exports = function (env, argv) {
+    const cssLoader = [
+        env.production ? MiniCssExtractPlugin.loader : 'style-loader',
+        'css-loader',
+        'postcss-loader'
+    ]
+
     const obj = {
         mode: env.production ? 'production' : 'development',
         entry: {
@@ -32,17 +38,10 @@ module.exports = function (env, argv) {
                 use: 'vue-loader'
             }, {
                 test: /\.css$/,
-                use: [
-                    env.production ? MiniCssExtractPlugin.loader : 'style-loader',
-                    'css-loader'
-                ]
+                use: cssLoader
             }, {
                 test: /\.(scss|sass)$/,
-                use: [
-                    env.production ? MiniCssExtractPlugin.loader : 'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: cssLoader.concat('sass-loader')
             }]
         },
         plugins: [

@@ -1,8 +1,12 @@
 <template>
-    <div class="home">{{ count }}</div>
+    <div class="home">
+        {{ fullName }}
+        {{ count }}
+    </div>
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
 export default {
     created () {
         var count = 0
@@ -12,9 +16,8 @@ export default {
         }, 1000)
     },
     computed: {
-        count () {
-            return this.$store.state.count
-        },
+        ...mapState(['count']),
+        ...mapGetters(['fullName']),
     },
 }
 </script>

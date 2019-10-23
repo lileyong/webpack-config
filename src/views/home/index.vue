@@ -6,18 +6,31 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+
 export default {
     created () {
         var count = 0
         setInterval(() => {
             count++
-            this.$store.commit('updateCount', count)
+            this.updateCount(count)
         }, 1000)
+        this.updateNameAsync({
+            firstName: 'Milly',
+            lastName: 'Chen',
+        })
     },
     computed: {
-        ...mapState(['count']),
-        ...mapGetters(['fullName']),
+        ...mapState({
+            count: 'count',
+        }),
+        ...mapGetters({
+            fullName: 'fullName',
+        }),
+    },
+    methods: {
+        ...mapMutations(['updateCount']),
+        ...mapActions(['updateNameAsync']),
     },
 }
 </script>

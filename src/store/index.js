@@ -4,6 +4,7 @@ import state from './state/index'
 import getters from './getters/index'
 import mutations from './mutations/index'
 import actions from './actions/index'
+import plugins from './plugins/index'
 
 Vue.use(Vuex)
 
@@ -14,7 +15,8 @@ const store = new Vuex.Store({
     state,
     getters,
     mutations,
-    actions
+    actions,
+    plugins
 })
 
 export default store

@@ -1,0 +1,15 @@
+{
+    "workbench.colorTheme": "One Dark Pro Bold",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.defaultFormatterOptions": {
+        "prettier": {
+            "semi": false,
+            "singleQuote": true,
+            "tabWidth": 4,
+            "trailingComma": "es5"
+        }
+    },
+    "vetur.format.defaultFormatter.js": "prettier-eslint"
+}

@@ -9,6 +9,7 @@
     },
     "pre-commit": "eslint",
     "dependencies": {
+        "@promise.li/my-plugin": "^2.0.0",
         "echarts": "^4.4.0",
         "element-ui": "^2.12.0",
         "vue": "^2.6.10",

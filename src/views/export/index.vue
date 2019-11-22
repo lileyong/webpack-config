@@ -1,9 +1,6 @@
 <template>
     <div>
-        <el-button
-            type="primary"
-            @click="doExport"
-        >导出</el-button>
+        <el-button type="primary" @click="doExport">导出</el-button>
         <el-button>事件</el-button>
     </div>
 </template>

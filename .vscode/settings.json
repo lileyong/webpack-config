@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "One Dark Pro Bold",
+    "workbench.colorTheme": "Default Dark+",
     "editor.tabSize": 4,
     "editor.formatOnSave": true,
     "vetur.format.options.tabSize": 4,
@@ -8,8 +8,10 @@
             "semi": false,
             "singleQuote": true,
             "tabWidth": 4,
-            "trailingComma": "es5"
+            "trailingComma": "es6"
         }
     },
-    "vetur.format.defaultFormatter.js": "prettier-eslint"
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
 }

@@ -23,7 +23,6 @@ export default {
     methods: {
         handleTabClick (index) {
             const dom = document.querySelector('#content' + (index + 1))
-            console.log(document.scrollingElement)
             document.scrollingElement.scrollTop = dom.offsetTop - 40
         },
         handleScroll: throttle(function () {

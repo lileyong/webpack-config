@@ -1,4 +1,4 @@
-import Console from 'src/views/console/index.vue'
+import Console from 'src/components/console/index.vue'
 import Export from 'src/views/export/index.vue'
 
 const routes = [{

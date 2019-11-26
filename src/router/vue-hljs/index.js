@@ -1,4 +1,4 @@
-import Console from 'src/views/console/index.vue'
+import Console from 'src/components/console/index.vue'
 import VueHljs from 'src/views/vue-hljs/index.vue'
 
 const routes = [{

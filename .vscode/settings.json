@@ -8,7 +8,7 @@
             "semi": false,
             "singleQuote": true,
             "tabWidth": 4,
-            "trailingComma": "es6"
+            "trailingComma": "es5"
         }
     },
     "vetur.format.defaultFormatter.html": "prettyhtml",

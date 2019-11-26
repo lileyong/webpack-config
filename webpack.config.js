@@ -64,7 +64,11 @@ module.exports = function (env, argv) {
             }]
         },
         plugins: [
-            new HtmlWebpackPlugin(),
+            new HtmlWebpackPlugin({
+                meta: {
+                    viewport: 'width=device-width, initial-scale=1.0'
+                }
+            }),
             new VueLoaderPlugin(),
             new PrerenderSPAPlugin({
                 staticDir: path.resolve(__dirname, 'dist'),

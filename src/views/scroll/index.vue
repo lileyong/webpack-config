@@ -23,15 +23,13 @@ export default {
     methods: {
         handleTabClick (index) {
             const dom = document.querySelector('#content' + (index + 1))
-            window.scrollTo({
-                left: 0,
-                top: dom.offsetTop - 40
-            })
+            console.log(document.scrollingElement)
+            document.scrollingElement.scrollTop = dom.offsetTop - 40
         },
         handleScroll: throttle(function () {
             const container = document.querySelector('#scroll')
             const tab = document.querySelector('#tab')
-            const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+            const scrollTop = document.scrollingElement.scrollTop
             if (scrollTop > tab.offsetTop) {
                 container.classList = ['fixed']
             } else {

@@ -1,5 +1,5 @@
 <template>
-    <div ref="scroll" id="scroll">
+    <div ref="container" id="container">
         <div ref="banner" id="banner"></div>
         <div ref="tab" id="tab">
             <span
@@ -40,7 +40,7 @@ export default {
         },
         handleScroll: throttle(function () {
             const scrollTop = document.scrollingElement.scrollTop
-            const container = this.$refs.scroll
+            const container = this.$refs.container
             const tab = this.$refs.tab
 
             if (scrollTop > tab.offsetTop) {
@@ -50,6 +50,11 @@ export default {
                     if (scrollTop + tab.offsetHeight >= moduleDom[0].offsetTop) {
                         this.moduleIndex = Number(index)
                     }
+                }
+                // 判断滚动到一半
+                const moduleDom = this.$refs['module' + (Number(this.moduleIndex) + 1)]
+                if (scrollTop + tab.offsetHeight >= moduleDom[0].offsetTop + 0.5 * moduleDom[0].offsetHeight) {
+                    console.log('滚动到一半')
                 }
             } else {
                 container.classList = []
@@ -76,10 +81,10 @@ export default {
     font-weight: bold;
     color: crimson;
 }
-#scroll.fixed {
+#container.fixed {
     padding-top: 40px;
 }
-#scroll.fixed #tab {
+#container.fixed #tab {
     position: fixed;
     left: 0;
     top: 0;

@@ -72,7 +72,7 @@ module.exports = function (env, argv) {
             new VueLoaderPlugin(),
             new PrerenderSPAPlugin({
                 staticDir: path.resolve(__dirname, 'dist'),
-                routes: ['/', '/home']
+                routes: ['/', '/home', '/scroll']
             })
         ],
         resolve: {

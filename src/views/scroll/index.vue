@@ -6,6 +6,7 @@
                 v-for="(tab, index) in tabs"
                 :key="tab"
                 :class="index === moduleIndex ? 'active' : ''"
+                :style="getTabStyle(index)"
                 @click="handleTabClick(index)"
             >{{ tab }}</span>
         </div>
@@ -25,7 +26,8 @@ export default {
     data () {
         return {
             tabs: ['内容1', '内容2', '内容3', '内容4'],
-            moduleIndex: 0
+            moduleIndex: 0,
+            transitionRatio: 0
         }
     },
     mounted () {
@@ -51,16 +53,20 @@ export default {
                         this.moduleIndex = Number(index)
                     }
                 }
-                // 判断滚动到一半
                 const moduleDom = this.$refs['module' + (Number(this.moduleIndex) + 1)]
-                if (scrollTop + tab.offsetHeight >= moduleDom[0].offsetTop + 0.5 * moduleDom[0].offsetHeight) {
-                    console.log('滚动到一半')
-                }
+                this.transitionRatio = (scrollTop + tab.offsetHeight - moduleDom[0].offsetTop) / moduleDom[0].offsetHeight
             } else {
                 container.classList = []
                 this.moduleIndex = 0
             }
-        }, 50)
+        }, 50),
+        getTabStyle (index) {
+            if (index === this.moduleIndex) {
+                return 'opacity: ' + (1 - this.transitionRatio)
+            } else if (index === this.moduleIndex + 1) {
+                return 'opacity: ' + this.transitionRatio + '; font-weight: bold; color: crimson;'
+            }
+        }
     }
 }
 </script>

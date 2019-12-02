@@ -1,25 +1,28 @@
 <template>
-    <div ref="container" id="container">
-        <div ref="banner" id="banner"></div>
-        <div ref="tab" id="tab">
-            <span
+    <div ref="wrapper" id="wrapper">
+        <div ref="content" id="content">
+            <div ref="banner" id="banner"></div>
+            <div ref="tab" id="tab">
+                <span
+                    v-for="(tab, index) in tabs"
+                    :key="tab"
+                    :class="index === moduleIndex ? 'active' : ''"
+                    @click="handleTabClick(index)"
+                >{{ tab }}</span>
+            </div>
+            <div
                 v-for="(tab, index) in tabs"
-                :key="tab"
-                :class="index === moduleIndex ? 'active' : ''"
-                @click="handleTabClick(index)"
-            >{{ tab }}</span>
+                :key="tab + 'module'"
+                :ref="'module' + (index + 1)"
+                :id="'module' + (index + 1)"
+            >{{ tab }}</div>
         </div>
-        <div
-            v-for="(tab, index) in tabs"
-            :key="tab + 'module'"
-            :ref="'module' + (index + 1)"
-            :id="'module' + (index + 1)"
-        >{{ tab }}</div>
     </div>
 </template>
 
 <script>
 import throttle from 'loadsh/throttle'
+import BScroll from 'better-scroll'
 
 export default {
     data () {
@@ -29,6 +32,7 @@ export default {
         }
     },
     mounted () {
+        new BScroll('#app', { click: true })
         window.addEventListener('scroll', this.handleScroll, false)
     },
     methods: {
@@ -39,12 +43,12 @@ export default {
             this.moduleIndex = index
         },
         handleScroll: throttle(function () {
-            const scrollTop = document.scrollingElement.scrollTop
-            const container = this.$refs.container
+            const wrapper = this.$refs.wrapper
             const tab = this.$refs.tab
+            const scrollTop = document.scrollingElement.scrollTop
 
             if (scrollTop > tab.offsetTop) {
-                container.classList = ['fixed']
+                wrapper.classList = ['fixed']
                 for (const index in this.tabs) {
                     const moduleDom = this.$refs['module' + (Number(index) + 1)]
                     if (scrollTop + tab.offsetHeight >= moduleDom[0].offsetTop) {
@@ -52,7 +56,7 @@ export default {
                     }
                 }
             } else {
-                container.classList = []
+                wrapper.classList = []
                 this.moduleIndex = 0
             }
         }, 50),
@@ -61,6 +65,13 @@ export default {
 </script>
 
 <style scoped>
+#wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
 #banner {
     height: 200px;
     background-color: darkmagenta;
@@ -76,10 +87,10 @@ export default {
     font-weight: bold;
     color: crimson;
 }
-#container.fixed {
+#wrapper.fixed {
     padding-top: 40px;
 }
-#container.fixed #tab {
+#wrapper.fixed #tab {
     position: fixed;
     left: 0;
     top: 0;

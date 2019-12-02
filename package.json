@@ -10,6 +10,7 @@
     "pre-commit": "eslint",
     "dependencies": {
         "@promise.li/my-plugin": "^2.0.0",
+        "better-scroll": "^1.15.2",
         "echarts": "^4.4.0",
         "element-ui": "^2.12.0",
         "js-export-excel": "^1.1.2",

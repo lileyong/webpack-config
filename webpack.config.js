@@ -34,22 +34,28 @@ module.exports = function (env, argv) {
                 options: {
                     fix: true
                 }
-            }, {
+            },
+            {
                 test: /\.vue$/,
                 use: 'vue-loader'
-            }, {
+            },
+            {
                 test: /\.css$/,
                 use: cssLoader
-            }, {
+            },
+            {
                 test: /\.(scss|sass)$/,
                 use: cssLoader.concat('sass-loader')
-            }, {
+            },
+            {
                 test: /\.styl$/,
                 use: cssLoader.concat('stylus-loader')
-            }, {
-                test: /\.jsx$/,
+            },
+            {
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader'
-            }, {
+            },
+            {
                 test: /\.(jpg|jpeg|png|svg|gif)$/,
                 use: [{
                     loader: 'url-loader',
@@ -58,10 +64,12 @@ module.exports = function (env, argv) {
                         name: '[name].[ext]'
                     }
                 }]
-            }, {
+            },
+            {
                 test: /\.(ttf|eot|woff)$/,
                 loader: 'file-loader'
-            }]
+            }
+            ]
         },
         plugins: [
             new HtmlWebpackPlugin({

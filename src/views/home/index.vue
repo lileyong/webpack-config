@@ -7,6 +7,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+import './decorators'
 
 export default {
     created () {
@@ -16,8 +17,8 @@ export default {
             this.updateCount(count)
         }, 1000)
         this.updateNameAsync({
-            firstName: 'Milly',
-            lastName: 'Chen',
+            firstName: 'Promise',
+            lastName: 'Li',
         })
     },
     computed: {

@@ -32,9 +32,8 @@ export default {
             const ExportJsonExcel = require('js-export-excel')
             var sheetData = []
             student.forEach(item => {
-                const name = item.match(/(?<=幼儿姓名：).+?\s/)
                 sheetData.push({
-                    s1: name, s2: item.match(/(?<=寒假居留城市：).+?\s/), s3: item.match(/(?<=外出居留城市：).+?\s/), s4: item.match(/(?<=有无居留武汉：).+?\s/), s5: item.match(/(?<=离开深圳时间：).+?\s/), s6: item.match(/(?<=返回深圳时间：).+?\s/), s7: item.match(/(?<=家属有无居留武汉：).+?\s/), s8: item.match(/(?<=有无发烧咳嗽等症状：).+?\s/), s9: '',
+                    s1: item.match(/(?<=幼儿姓名：).+?\s/), s2: item.match(/(?<=寒假居留城市：).+?\s/), s3: item.match(/(?<=外出居留城市：).+?\s/), s4: item.match(/(?<=有无居留武汉：).+?\s/), s5: item.match(/(?<=离开深圳时间：).+?\s/), s6: item.match(/(?<=返回深圳时间：).+?\s/), s7: item.match(/(?<=家属有无居留武汉：).+?\s/), s8: item.match(/(?<=有无发烧咳嗽等症状：).+?\s/), s9: '',
                 })
             })
 

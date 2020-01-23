@@ -7,7 +7,6 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
-import './decorators'
 
 export default {
     created () {

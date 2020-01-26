@@ -1,7 +1,6 @@
 <template>
     <div>
         <el-button type="primary" @click="doExport">导出</el-button>
-        <el-button>事件</el-button>
     </div>
 </template>
 
@@ -9,24 +8,6 @@
 import student from './student'
 
 export default {
-    mounted () {
-        const node = document.querySelector('.el-button--default')
-        node.addEventListener(
-            'click',
-            event => {
-                event.stopPropagation()
-                console.log('冒泡')
-            },
-            false
-        )
-        node.addEventListener(
-            'click',
-            event => {
-                console.log('捕获 ')
-            },
-            true
-        )
-    },
     methods: {
         doExport () {
             const ExportJsonExcel = require('js-export-excel')

@@ -7,6 +7,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+import './set-map'
 
 export default {
     created () {

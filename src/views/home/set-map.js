@@ -19,5 +19,4 @@ let value = {
 
 wm.set(key, value)
 value = null
-wm.clear()
 console.log(wm.get(key)) // Object { foo: 1 }

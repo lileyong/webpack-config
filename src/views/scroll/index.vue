@@ -21,8 +21,19 @@
 </template>
 
 <script>
+var obj = {
+    name: '小明',
+    age: 18
+}
+for (const value of obj) {
+    console.log(value)
+}
+</script>
+
+<script>
 import throttle from 'loadsh/throttle'
 import BScroll from 'better-scroll'
+import './learn'
 
 export default {
     data () {

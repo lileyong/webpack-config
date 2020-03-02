@@ -11,7 +11,7 @@ context.keys().forEach(key => {
 
 const router = new VueRouter({
     mode: 'history',
-    routes
+    routes,
 })
 
 export default router

@@ -1,0 +1,80 @@
+[v-cloak]{display:none}html,body{margin:0;padding:0;height:100%;font-family:'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;scroll-behavior:smooth}#app{height:100%}.center{display:flex;justify-content:center;align-items:center}
+
+#logo[data-v-7d34c03e]{width:180px;height:100%}
+
+#nav-list[data-v-6878e884]{padding:0 25px;display:flex}#nav-list .nav-item[data-v-6878e884]{padding:0 16px;line-height:60px;font-size:15px;color:rgba(255,255,255,0.7)}#nav-list .nav-item.active[data-v-6878e884]{font-weight:700;color:#fff}
+
+#app-header[data-v-ca625de8]{display:flex;width:100%;height:60px;background:#bc4e9c;background:linear-gradient(to right, #bc4e9c, #f80759)}
+
+#app-sidebar[data-v-55f25f5a]{width:180px;height:100%;box-sizing:border-box;border-right:1px solid #e3e8f4;background-color:#f7fbff}
+
+#app-content[data-v-2bbcf930]{flex:1;width:0;height:100%}
+
+#console[data-v-4c95458c]{display:flex;flex-direction:column;height:100%}#console #console-body[data-v-4c95458c]{flex:1;height:0;display:flex}
+
+
+#wrapper[data-v-6e6527ac] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#banner[data-v-6e6527ac] {
+    height: 200px;
+    background-color: darkmagenta;
+}
+#tab[data-v-6e6527ac] {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    background-color: azure;
+}
+#tab .active[data-v-6e6527ac] {
+    font-weight: bold;
+    color: crimson;
+}
+#wrapper.fixed[data-v-6e6527ac] {
+    padding-top: 40px;
+}
+#wrapper.fixed #tab[data-v-6e6527ac] {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+#module1[data-v-6e6527ac] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    background-color: antiquewhite;
+}
+#module2[data-v-6e6527ac] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    background-color: aquamarine;
+}
+#module3[data-v-6e6527ac] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: beige;
+}
+#module4[data-v-6e6527ac] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    background-color: cadetblue;
+}
+
+
+.hljs[data-v-417cc55e] {
+    font-size: 20px;
+}
+

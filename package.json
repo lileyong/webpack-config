@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "webpack-dev-server --env.development",
     "build": "webpack --env.production",
+    "dll": "webpack --env.production --config build/webpack.dll.conf.js",
     "eslint": "eslint --ext .js --ext .vue .",
     "eslint:fix": "eslint --fix --ext .js --ext .vue .",
     "analyze": "webpack --env.analyze"

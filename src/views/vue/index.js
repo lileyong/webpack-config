@@ -5,10 +5,13 @@ function cb (val) {
 
 // 响应式
 function defineReactive (obj, key, val) {
+    const dep = new Dep()
+
     Object.defineProperty(obj, key, {
         enumerable: true,
         configurable: true,
         get () {
+            dep.addSub(Dep.target)
             return val
         },
         set (newVal) {
@@ -29,11 +32,41 @@ function observer (obj) {
     })
 }
 
+// 订阅者
+class Dep {
+    constructor () {
+        this.subs = []
+    }
+
+    addSub (sub) {
+        this.subs.push(sub)
+    }
+
+    notify () {
+        this.subs.forEach(sub => {
+            sub.update()
+        })
+    }
+}
+
+// 观察者
+class Watcher {
+    constructor () {
+        Dep.target = this
+    }
+
+    update () {
+        cb()
+    }
+}
+Dep.target = null
+
 // vue类
 class Vue {
     constructor (options) {
         this.data = options.data
         observer(this.data)
+        new Watcher()
     }
 }
 

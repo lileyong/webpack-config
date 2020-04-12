@@ -3,6 +3,8 @@
 </template>
 
 <script>
-import './index'
+import './vue'
+import './single'
+
 export default {}
 </script>

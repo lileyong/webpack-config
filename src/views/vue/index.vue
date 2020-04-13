@@ -6,6 +6,7 @@
 import './vue'
 import './single'
 import './inherit'
+import './callback'
 
 export default {}
 </script>

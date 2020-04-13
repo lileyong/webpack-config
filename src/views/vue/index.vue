@@ -5,6 +5,7 @@
 <script>
 import './vue'
 import './single'
+import './inherit'
 
 export default {}
 </script>

@@ -1,8 +1,8 @@
-const async = function (callback) {
+const async = function(callback) {
     try {
-        setImmediate(callback)
+        new Promise(resolve => resolve()).then(callback())
     } catch (err) {
-        console.log('caught error', err)
+        console.log('caught error in promise', err)
     }
 }
 

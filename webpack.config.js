@@ -9,7 +9,7 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
 
-module.exports = function(env, argv) {
+module.exports = function (env, argv) {
     const cssLoader = [
         env.production ? MiniCssExtractPlugin.loader : 'style-loader',
         'css-loader',

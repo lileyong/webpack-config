@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -8,7 +9,7 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
 
-module.exports = function (env, argv) {
+module.exports = function(env, argv) {
     const cssLoader = [
         env.production ? MiniCssExtractPlugin.loader : 'style-loader',
         'css-loader',
@@ -18,8 +19,7 @@ module.exports = function (env, argv) {
     const obj = {
         mode: env.production ? 'production' : 'development',
         entry: {
-            main: 'src/index.js',
-            vendor: ['vue']
+            main: 'src/index.js'
         },
         devServer: {
             open: true,
@@ -89,17 +89,15 @@ module.exports = function (env, argv) {
             new PrerenderSPAPlugin({
                 staticDir: path.resolve(__dirname, 'dist'),
                 routes: ['/', '/home', '/scroll']
+            }),
+            new webpack.DllReferencePlugin({
+                context: __dirname,
+                manifest: require('./public/dll/vendor-manifest.json')
             })
         ],
         resolve: {
             alias: {
                 src: path.resolve(__dirname, 'src')
-            }
-        },
-        optimization: {
-            splitChunks: {
-                name: 'vendor',
-                chunks: 'all'
             }
         },
         output: {

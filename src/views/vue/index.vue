@@ -6,7 +6,6 @@
 import './vue'
 import './single'
 import './inherit'
-import './callback'
 
 export default {
     created () {
@@ -19,9 +18,6 @@ export default {
         // 对象解构赋值
         const { name: myName, age: myAge } = { name: 'zfb', age: 8 }
         console.log(myName, myAge)
-        // 默认值
-        const [b = 'baidu', a = 'ali', t = 'tencent'] = [1, , 3]
-        console.log(b, a, t)
         // 模板字符串
         var name = 'zfpx'
         var age = 8

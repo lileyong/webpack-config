@@ -9,7 +9,7 @@
     "eslint:fix": "eslint --fix --ext .js --ext .vue .",
     "analyze": "webpack --env.analyze"
   },
-  "pre-commit": "eslint",
+  "pre-commit": "eslint --fix",
   "dependencies": {
     "@promise.li/my-plugin": "^2.0.0",
     "better-scroll": "^1.15.2",

@@ -1,4 +1,4 @@
-const async = function(callback) {
+const async = function (callback) {
     try {
         new Promise(resolve => resolve()).then(callback())
     } catch (err) {

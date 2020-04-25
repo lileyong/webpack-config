@@ -8,6 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin
+const happyThreadPool = HappyPack.ThreadPool({ size: 8 })
 
 module.exports = function (env, argv) {
     const cssLoader = [
@@ -75,6 +76,10 @@ module.exports = function (env, argv) {
             ]
         },
         plugins: [
+            new webpack.DllReferencePlugin({
+                context: __dirname,
+                manifest: require('./public/dll/vendor-manifest.json')
+            }),
             new HtmlWebpackPlugin({
                 meta: {
                     viewport: 'width=device-width, initial-scale=1.0'
@@ -84,15 +89,11 @@ module.exports = function (env, argv) {
             new HappyPack({
                 id: 'happybabel',
                 loaders: ['babel-loader?cacheDirectory'],
-                threads: 8
+                threadPool: happyThreadPool
             }),
             new PrerenderSPAPlugin({
                 staticDir: path.resolve(__dirname, 'dist'),
                 routes: ['/', '/home', '/scroll']
-            }),
-            new webpack.DllReferencePlugin({
-                context: __dirname,
-                manifest: require('./public/dll/vendor-manifest.json')
             })
         ],
         resolve: {
@@ -100,9 +101,17 @@ module.exports = function (env, argv) {
                 src: path.resolve(__dirname, 'src')
             }
         },
+        externals: {
+            vue: 'vue',
+            vuex: 'vuex',
+            vueRouter: 'vue-router',
+            elementUI: 'element-ui'
+        },
         output: {
             path: path.resolve(__dirname, 'dist'),
-            filename: '[name].[chunkhash:8].js'
+            publicPath: 'dist/',
+            filename: '[name].[chunkhash:8].js',
+            chunkFilename: '[name].[chunkhash:8].js'
         }
     }
 

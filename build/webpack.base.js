@@ -77,7 +77,7 @@ module.exports = {
         }
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: '[name].[chunkhash:8].js'
     }
 }

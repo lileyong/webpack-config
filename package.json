@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "dev": "webpack-dev-server --config ./build/webpack.dev.js",
-        "build": "webpack --env.production",
+        "build": "webpack --config ./build/webpack.prod.js",
         "dll": "webpack --env.production --config build/webpack.dll.conf.js",
         "eslint": "eslint --ext .js --ext .vue .",
         "eslint:fix": "eslint --fix --ext .js --ext .vue .",
@@ -52,6 +52,7 @@
         "webpack": "^4.43.0",
         "webpack-bundle-analyzer": "^3.6.1",
         "webpack-cli": "^3.3.9",
-        "webpack-dev-server": "^3.8.1"
+        "webpack-dev-server": "^3.8.1",
+        "webpack-merge": "^4.2.2"
     }
 }

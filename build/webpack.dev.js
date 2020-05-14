@@ -3,6 +3,7 @@ const baseConfig = require('./webpack.base')
 
 module.exports = merge(baseConfig, {
     mode: 'development',
+    devtool: 'source-map',
     devServer: {
         open: true,
         historyApiFallback: true

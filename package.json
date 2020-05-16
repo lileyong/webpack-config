@@ -3,11 +3,11 @@
     "version": "1.0.0",
     "scripts": {
         "dev": "webpack-dev-server --config ./build/webpack.dev.js",
-        "build": "webpack --config ./build/webpack.prod.js",
         "dll": "webpack --env.production --config build/webpack.dll.conf.js",
+        "build": "webpack --config ./build/webpack.prod.js",
+        "analyze": "webpack --config ./build/webpack.prod.js --env.analyze",
         "eslint": "eslint --ext .js --ext .vue .",
-        "eslint:fix": "eslint --fix --ext .js --ext .vue .",
-        "analyze": "webpack --env.analyze"
+        "eslint:fix": "eslint --fix --ext .js --ext .vue ."
     },
     "dependencies": {
         "@promise.li/my-plugin": "^2.0.0",
